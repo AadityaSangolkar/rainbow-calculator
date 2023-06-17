@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rainbow Calculator</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" 
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX/VyL/mADpHmOIDk//wQf/6zvN3DmLw0pMr1AAlogAvNQDqfQhlvM/UbVnOrecJ7D/USP/5TbY3zmfykVltk5OsE0toXIAlIUAqrAAvdMCtOIAqvQSovQrheJJTLVvOLaiJqvuHV2ADU1JPgc4AAABPElEQVR4nO3PiVECQAAEwQUU/BAQeeQRJf8gzcKq2ZvOoBNJkiRJ/2DdLpN2Dvkc8jnkc8jnkM8h3wDDh3YO+RzyOeRzyOeQzyHfAMNNuzy2c8jnkM8hn0M+h3wO+fLRLvN2Dvkc8jnkc8jnkM8hX7btsmjnkM8hn0M+h3wO+Rzy5bNdnto55HPI55DPIZ9DvgGGu3bZt8tzO4d8Dvkc8jnkc8g3wPDQLsd2eWnnkM8hn0M+h3wO+QYYfrXLqV1e2znkc8jnkM8hn0O+AYbndrm0y1s7h3wO+RzyOeRzyOeQL9d2WbZzyOeQzyGfQz6HfA758t0u7+0c8jnkc8jnkM8hn0O+3Npl1c4hn0M+h3wO+RzyOeTLT7v8tsu0nUM+h3wO+RzyOeRzyJd7u8zaOeRzyOeQzyGfQz6HfH/vft/tm8SfPQAAAABJRU5ErkJggg==" 
+    type="image/png"
+    />
+
+    <style>
+      /*Rainbow code*/
+      body {
+        font-family: JetBrains Mono, monospace;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        animation: rainbow 7s infinite linear;
+      }
+
+      @keyframes rainbow {
+        0% {
+          background-color: red;
+        }
+        14% {
+          background-color: orange;
+        }
+        28% {
+          background-color: yellow;
+        }
+        42% {
+          background-color: green;
+        }
+        57% {
+          background-color: blue;
+        }
+        71% {
+          background-color: indigo;
+        }
+        85% {
+          background-color: violet;
+        }
+        100% {
+          background-color: red;
+        }
+      }
+      /*sizing*/
+      input[type="text"]{
+        text-align:center ;
+        font-size:medium ; 
+      }
+      input[type="button"]{
+        font-size:medium ; 
+      }
+      select{
+        font-size:medium ; 
+      }
+    </style>
+    <script>
+      console.log("Created By Aaditya") ;
+      console.log("History Is Stored Here") ; 
+      function submitted() {
+        let num1 = Number(document.getElementById("1").value);
+        let num2 = Number(document.getElementById("2").value);
+        let opreation = document.getElementById("opreation").value;
+        //  History
+        console.log("The First Number Is " + num1);
+        console.log("The Second Number Is " + num2);
+        console.log("The opreation Is " + opreation);
+        //  The Opreations
+        let divide = num1 / num2;
+        let addition = num1 + num2;
+        let subtraction = num1 - num2;
+        let multiply = num1 * num2;
+
+        document.getElementById("1").value = "";
+        document.getElementById("2").value = "";
+
+        switch (opreation) {
+          case "-":
+            document.getElementById("answer").innerHTML =
+              "Your Answer Is " + subtraction;
+            console.log("The Answer Is " + subtraction);
+            break;
+          case "+":
+            document.getElementById("answer").innerHTML =
+              "Your Answer Is " + addition;
+            console.log("The Answer Is " + addition);
+            break;
+          case "/":
+            document.getElementById("answer").innerHTML =
+              "Your Answer Is " + divide;
+            console.log("The Answer Is " + divide);
+            break;
+          case "*":
+            document.getElementById("answer").innerHTML =
+              "Your Answer Is " + multiply;
+            console.log("The Answer Is " + multiply);
+            break;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="getup">
+      <h1>Calculator</h1>
+
+      <br />
+      <b> <label>First Number:</label></b>
+      <input type="text" id="1" placeholder="1st Number" />
+      <br />
+      <b> <label>Second Number:</label></b>
+      <input type="text" id="2" placeholder="2st Number" />
+      <br />
+      <b>
+        <label>Opreation:</label>
+      </b>
+      <select id="opreation">
+        <option class="option" value="-">subtract</option>
+        <option class="option" value="*">multiply</option>
+        <option class="option" value="/">divide</option>
+        <option class="option" value="+">add</option>
+      </select>
+
+      <br /><br />
+      <input id="input" type="button" value="Submit" onclick="submitted();" />
+      <br /><!--Display The Answer--> 
+      <h2 id="answer">Answer Will Appear Here!</h2>
+    </div>
+  </body>
+</html>
