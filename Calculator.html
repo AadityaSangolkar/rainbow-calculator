@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Rainbow Calculator</title>
     <meta charset="UTF-8" />
-    <link rel="icon" 
-    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX/VyL/mADpHmOIDk//wQf/6zvN3DmLw0pMr1AAlogAvNQDqfQhlvM/UbVnOrecJ7D/USP/5TbY3zmfykVltk5OsE0toXIAlIUAqrAAvdMCtOIAqvQSovQrheJJTLVvOLaiJqvuHV2ADU1JPgc4AAABPElEQVR4nO3PiVECQAAEwQUU/BAQeeQRJf8gzcKq2ZvOoBNJkiRJ/2DdLpN2Dvkc8jnkc8jnkM8h3wDDh3YO+RzyOeRzyOeQzyHfAMNNuzy2c8jnkM8hn0M+h3wO+fLRLvN2Dvkc8jnkc8jnkM8hX7btsmjnkM8hn0M+h3wO+Rzy5bNdnto55HPI55DPIZ9DvgGGu3bZt8tzO4d8Dvkc8jnkc8g3wPDQLsd2eWnnkM8hn0M+h3wO+QYYfrXLqV1e2znkc8jnkM8hn0O+AYbndrm0y1s7h3wO+RzyOeRzyOeQL9d2WbZzyOeQzyGfQz6HfA758t0u7+0c8jnkc8jnkM8hn0O+3Npl1c4hn0M+h3wO+RzyOeTLT7v8tsu0nUM+h3wO+RzyOeRzyJd7u8zaOeRzyOeQzyGfQz6HfH/vft/tm8SfPQAAAABJRU5ErkJggg==" 
-    type="image/png"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Calculator</title>
+   
+    <link
+      rel="icon"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEX/VyL/mADpHmOIDk//wQf/6zvN3DmLw0pMr1AAlogAvNQDqfQhlvM/UbVnOrecJ7D/USP/5TbY3zmfykVltk5OsE0toXIAlIUAqrAAvdMCtOIAqvQSovQrheJJTLVvOLaiJqvuHV2ADU1JPgc4AAABPElEQVR4nO3PiVECQAAEwQUU/BAQeeQRJf8gzcKq2ZvOoBNJkiRJ/2DdLpN2Dvkc8jnkc8jnkM8h3wDDh3YO+RzyOeRzyOeQzyHfAMNNuzy2c8jnkM8hn0M+h3wO+fLRLvN2Dvkc8jnkc8jnkM8hX7btsmjnkM8hn0M+h3wO+Rzy5bNdnto55HPI55DPIZ9DvgGGu3bZt8tzO4d8Dvkc8jnkc8g3wPDQLsd2eWnnkM8hn0M+h3wO+QYYfrXLqV1e2znkc8jnkM8hn0O+AYbndrm0y1s7h3wO+RzyOeRzyOeQL9d2WbZzyOeQzyGfQz6HfA758t0u7+0c8jnkc8jnkM8hn0O+3Npl1c4hn0M+h3wO+RzyOeTLT7v8tsu0nUM+h3wO+RzyOeRzyJd7u8zaOeRzyOeQzyGfQz6HfH/vft/tm8SfPQAAAABJRU5ErkJggg=="
+      type="image/png"
     />
 
     <style>
       /*Rainbow code*/
       body {
+        cursor: defualt;
         font-family: JetBrains Mono, monospace;
-        height: 100vh;
+        height: 100;
         margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 2rem;
         color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-shadow: black 2px 2px;
         animation: rainbow 7s infinite linear;
       }
 
@@ -49,25 +53,42 @@
           background-color: red;
         }
       }
-      /*sizing*/
-      input[type="text"]{
-        text-align:center ;
-        font-size:medium ; 
+
+      h1 {
+        cursor: defualt;
       }
-      input[type="button"]{
-        font-size:medium ; 
+
+      input[type="text"] {
+        text-align: center;
+        font-size: medium;
       }
-      select{
-        font-size:medium ; 
+
+      input[type="button"] {
+        font-size: medium;
+        cursor: pointer;
+      }
+      option {
+        cursor: pointer;
+      }
+      select {
+        font-size: medium;
+
+        cursor: pointer;
       }
     </style>
     <script>
-      console.log("Created By Aaditya") ;
-      console.log("History Is Stored Here") ; 
+      console.log("Created By Aaditya");
+      console.log("History Is Stored Here");
       function submitted() {
         let num1 = Number(document.getElementById("1").value);
         let num2 = Number(document.getElementById("2").value);
         let opreation = document.getElementById("opreation").value;
+        if (isNaN(num1)) {
+          num1 = "Not A Number";
+        }
+        if (isNaN(num2)) {
+          num2 = "Not A Number";
+        }
         //  History
         console.log("The First Number Is " + num1);
         console.log("The Second Number Is " + num2);
@@ -77,7 +98,18 @@
         let addition = num1 + num2;
         let subtraction = num1 - num2;
         let multiply = num1 * num2;
-
+        // if the answer is not a number
+        if (
+          isNaN(divide) ||
+          isNaN(multiply) ||
+          isNaN(addition) ||
+          isNaN(subtraction)
+        ) {
+          divide = "Not A Number";
+          multiply = "Not A Number";
+          addition = "Not A Number";
+          subtraction = "Not A Number";
+        }
         document.getElementById("1").value = "";
         document.getElementById("2").value = "";
 
@@ -122,15 +154,15 @@
         <label>Opreation:</label>
       </b>
       <select id="opreation">
-        <option class="option" value="-">subtract</option>
-        <option class="option" value="*">multiply</option>
         <option class="option" value="/">divide</option>
+        <option class="option" value="*">multiply</option>
         <option class="option" value="+">add</option>
+        <option class="option" value="-">subtract</option>
       </select>
 
       <br /><br />
       <input id="input" type="button" value="Submit" onclick="submitted();" />
-      <br /><!--Display The Answer--> 
+      <br /><!--Display The Answer-->
       <h2 id="answer">Answer Will Appear Here!</h2>
     </div>
   </body>
